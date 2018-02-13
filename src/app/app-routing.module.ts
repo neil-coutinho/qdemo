@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: './theme/dashboard/dashboard.module#DashboardModule'
       },
       {
+        path: 'schema',
+        loadChildren: './modules/forms/forms.module#FormsModule'
+      },
+      {
         path: 'navigation',
         loadChildren: './theme/navigation/navigation.module#NavigationModule'
       },

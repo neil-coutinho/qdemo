@@ -133,7 +133,7 @@ export class AdminComponent implements OnInit {
     this.sidebarImgType = 'img1';
     this.layoutType = 'light';
 
-    this.headerTheme = 'themelight5';
+    this.headerTheme = 'themelight1';
     this.pcodedHeaderPosition = 'fixed';
 
     this.liveNotification = 'an-off';
@@ -150,8 +150,8 @@ export class AdminComponent implements OnInit {
     this.setHeaderAttributes(this.windowWidth);
 
     this.toggleOn = true;
-    this.navBarTheme = 'theme1';
-    this.activeItemTheme = 'theme10';
+    this.navBarTheme = 'themelight1';
+    this.activeItemTheme = 'theme7';
     this.pcodedSidebarPosition = 'fixed';
     this.menuTitleTheme = 'theme6';
     this.dropDownIcon = 'style3';

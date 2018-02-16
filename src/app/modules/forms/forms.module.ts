@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormComponent } from './form.component';
 
-import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
-
-import { DynamicFormsNGBootstrapUIModule } from "@ng-dynamic-forms/ui-ng-bootstrap";
-
-
+import { JsonSchemaFormModule }  from 'angular4-json-schema-form';
 
 
 
@@ -18,12 +14,9 @@ import { DynamicFormsNGBootstrapUIModule } from "@ng-dynamic-forms/ui-ng-bootstr
   imports: [
     CommonModule,
     FormsRoutingModule,
+    JsonSchemaFormModule,
 
-    DynamicFormsCoreModule.forRoot(),
 
-    DynamicFormsNGBootstrapUIModule,
-
-    ReactiveFormsModule
 
   ],
   declarations: [FormComponent]
@@ -32,4 +25,5 @@ import { DynamicFormsNGBootstrapUIModule } from "@ng-dynamic-forms/ui-ng-bootstr
 
 
 
-export class FormsModule { }
+export class FormsModule {
+}

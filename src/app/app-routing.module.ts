@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: './modules/forms/forms.module#FormsModule'
       },
       {
+        path: 'sandbox',
+        loadChildren: './modules/sandbox/sandbox.module#SandboxModule'
+      },
+      {
         path: 'navigation',
         loadChildren: './theme/navigation/navigation.module#NavigationModule'
       },

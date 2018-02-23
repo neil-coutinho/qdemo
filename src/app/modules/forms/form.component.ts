@@ -1,5 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+import { QFrameworkComponent } from '../../framework/q-framework.component.d';
+//import { YourWidgetComponent } from './your-widget.component';
+
+let QFramework = {
+  framework: QFrameworkComponent,
+  // widgets:     { 'your-widget-name': YourWidgetComponent,   ... },  // optional
+  scripts: [
+      '//code.jquery.com/jquery-3.2.1.slim.min.js',
+      '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js',
+    
+  ],
+}
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -110,6 +123,7 @@ export class FormComponent implements OnInit {
           {
             "type": "section",
             "htmlClass": "card p-15",
+            "fieldHtmlClass": "btn-info",
             "items": [
               {
                 "key": "products",
@@ -117,6 +131,8 @@ export class FormComponent implements OnInit {
                 "orderable": false,
                 "listItems": 1,
                 "notitle": true,
+                  "fieldHtmlClass": "btn-info",
+
                 "items":[
                   {
                     "type": "section",
@@ -133,7 +149,8 @@ export class FormComponent implements OnInit {
                     },{
                       "key": "products[].price", "notitle": true, "placeholder": "Price","flex": "3 3 150px"
                     }]
-                  }
+                  },
+
                 ]
 
               }

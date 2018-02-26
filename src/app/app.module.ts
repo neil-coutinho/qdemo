@@ -30,6 +30,7 @@ import {BreadcrumbsComponent} from './layout/admin/breadcrumbs/breadcrumbs.compo
     
 
 
+
   ],
   providers: [MenuItems],
   bootstrap: [AppComponent]

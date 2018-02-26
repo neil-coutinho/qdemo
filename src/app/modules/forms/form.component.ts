@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
+import { QFrameworkModule } from '../../framework/q-framework.module.d';
 import { QFrameworkComponent } from '../../framework/q-framework.component.d';
-//import { YourWidgetComponent } from './your-widget.component';
+import { QInputComponent } from '../../framework/q-input.component';
+
+
+import { FrameworkLibraryService } from 'angular4-json-schema-form';
 
 let QFramework = {
   framework: QFrameworkComponent,
-  // widgets:     { 'your-widget-name': YourWidgetComponent,   ... },  // optional
-  scripts: [
-      '//code.jquery.com/jquery-3.2.1.slim.min.js',
-      '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js',
-    
-  ],
+   // widgets:
+   // {
+   //   'input': QInputComponent
+   // },
+    scripts: [
+        '//code.jquery.com/jquery-3.2.1.slim.min.js',
+        '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js',
+
+    ],
 }
+
+
+
+
+
+
 
 @Component({
   selector: 'app-form',
@@ -27,12 +40,14 @@ export class FormComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor( private frameworkLibrary: FrameworkLibraryService ) {
 
 
   }
 
   ngOnInit() {
+
+    this.frameworkLibrary.setFramework(QFramework);
 
     this.formSchema = {
 

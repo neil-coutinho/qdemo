@@ -4,6 +4,8 @@ import { WidgetLibraryService } from 'angular4-json-schema-form';
 import { FrameworkLibraryService } from 'angular4-json-schema-form';
 
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
+import { JsonSchemaFormService } from '../../../../../node_modules/angular4-json-schema-form/src/json-schema-form.service';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -17,9 +19,7 @@ export class FormComponent implements OnInit {
   formLayout;
   formModel = {};
 
-
-
-  constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService ) {
+  constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService , private jsf: JsonSchemaFormService) {
 
     widgetLibrary.registerWidget('markdown', QInputWidgetComponent);
 

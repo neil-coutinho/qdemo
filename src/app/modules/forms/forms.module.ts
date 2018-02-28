@@ -9,9 +9,6 @@ import { JsonSchemaFormModule }  from 'angular4-json-schema-form';
 
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
 
-import { JsonSchemaFormService } from '../../../../../node_modules/angular4-json-schema-form/src/json-schema-form.service';
-
-import { AbstractControl } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -20,7 +17,6 @@ import { AbstractControl } from '@angular/forms';
     JsonSchemaFormModule,
 
   ],
-
   declarations: [FormComponent, QInputWidgetComponent],
   entryComponents: [QInputWidgetComponent]
 })

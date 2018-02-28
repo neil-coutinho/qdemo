@@ -1,36 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { QFrameworkModule } from '../../framework/q-framework.module.d';
-import { QFrameworkComponent } from '../../framework/q-framework.component.d';
-import { QInputComponent } from '../../framework/q-input.component';
-
-
+import { WidgetLibraryService } from 'angular4-json-schema-form';
 import { FrameworkLibraryService } from 'angular4-json-schema-form';
 
-let QFramework = {
-  framework: QFrameworkComponent,
-   // widgets:
-   // {
-   //   'input': QInputComponent
-   // },
-    scripts: [
-        '//code.jquery.com/jquery-3.2.1.slim.min.js',
-        '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js',
-
-    ],
-}
-
-
-
-
-
-
-
+import { QInputWidgetComponent } from './widgets/q-input-widget.component';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
+
 
 export class FormComponent implements OnInit {
 
@@ -40,14 +19,15 @@ export class FormComponent implements OnInit {
 
 
 
-  constructor( private frameworkLibrary: FrameworkLibraryService ) {
+  constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService ) {
 
+    widgetLibrary.registerWidget('markdown', QInputWidgetComponent);
 
   }
 
   ngOnInit() {
 
-    this.frameworkLibrary.setFramework(QFramework);
+
 
     this.formSchema = {
 
@@ -73,6 +53,12 @@ export class FormComponent implements OnInit {
                  "type": "string",
                  "maxLength": 500,
                  "validationMessage": "Comment is a required field"
+               },
+               "description": {
+                 "title": "Description",
+                 "type": "string",
+                 "maxLength": 500,
+                 "validationMessage": "Description is a required field"
                },
 
                "shipTo": {
@@ -130,6 +116,11 @@ export class FormComponent implements OnInit {
         "key": "comment",
         "type": "textarea",
         "placeholder": "Make a comment"
+      },
+      {
+        "key": "description",
+        "type": "markdown",
+        "placeholder": "Description"
       },
       {
         "title": "<h4>Products</h4>",

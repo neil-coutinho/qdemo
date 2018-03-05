@@ -4,7 +4,7 @@ import { WidgetLibraryService } from 'angular4-json-schema-form';
 import { FrameworkLibraryService } from 'angular4-json-schema-form';
 
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
-import { JsonSchemaFormService } from '../../../../../node_modules/angular4-json-schema-form/src/json-schema-form.service';
+import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -13,13 +13,13 @@ import { JsonSchemaFormService } from '../../../../../node_modules/angular4-json
 })
 
 
-export class FormComponent implements OnInit {
+export class QFormComponent implements OnInit {
 
   formSchema;
   formLayout;
   formModel = {};
 
-  constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService , private jsf: JsonSchemaFormService) {
+  constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService ) {
 
     widgetLibrary.registerWidget('markdown', QInputWidgetComponent);
 
@@ -123,8 +123,10 @@ export class FormComponent implements OnInit {
         "placeholder": "Description"
       },
       {
-        "title": "<h4>Products</h4>",
+        "title": "Products",
         "type": "section",
+        "expandable": true,
+        "expanded": true,
         "items":[
           {
             "type": "section",
@@ -169,12 +171,18 @@ export class FormComponent implements OnInit {
 
       },
       {
-        "type": "section",
+        "type": "div",
         "display": "flex",
         "flex-direction": "row wrap",
         "items": [
-              { "key": "orderDate", "flex": "3 3 150px", "title": "Order Date",
-             },
+            {
+              "type": "section",
+              "flex": "1 1 150px",
+              "items": [
+                { "key": "orderDate", "title": "Order Date", "htmlClass": "w-50",}
+              ]
+            }
+
         ]
 
       },

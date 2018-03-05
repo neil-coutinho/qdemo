@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormComponent } from './form.component';
+import { QFormComponent } from './q-form.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: FormComponent,
+    component: QFormComponent,
     data: {
       title: 'Schema form',
       icon: 'icon-layout-cta-right',
@@ -22,4 +22,4 @@ const routes: Routes = [
   exports: [RouterModule],
 
 })
-export class FormsRoutingModule { }
+export class QFormsRoutingModule { }

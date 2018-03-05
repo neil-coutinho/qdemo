@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'schema',
-        loadChildren: './modules/forms/forms.module#FormsModule'
+        loadChildren: './modules/forms/q-forms.module#QFormsModule'
       },
       {
         path: 'sandbox',

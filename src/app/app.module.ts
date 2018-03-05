@@ -27,7 +27,7 @@ import {BreadcrumbsComponent} from './layout/admin/breadcrumbs/breadcrumbs.compo
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    
+
 
 
 

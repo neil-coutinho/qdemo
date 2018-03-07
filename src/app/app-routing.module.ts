@@ -21,10 +21,7 @@ const routes: Routes = [
         path: 'schema',
         loadChildren: './modules/forms/q-forms.module#QFormsModule'
       },
-      {
-        path: 'sandbox',
-        loadChildren: './modules/sandbox/sandbox.module#SandboxModule'
-      },
+      
       {
         path: 'navigation',
         loadChildren: './theme/navigation/navigation.module#NavigationModule'

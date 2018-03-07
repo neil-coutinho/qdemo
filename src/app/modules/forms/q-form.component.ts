@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WidgetLibraryService } from 'angular4-json-schema-form';
-import { FrameworkLibraryService } from 'angular4-json-schema-form';
+import { WidgetLibraryService } from 'angular2-json-schema-form';
+import { FrameworkLibraryService } from 'angular2-json-schema-form';
 
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';

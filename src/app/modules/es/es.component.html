@@ -1,0 +1,38 @@
+<div class="page-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Ng-X Basic Datatable'">
+
+
+<p>
+  <ngb-alert [dismissible]="false">
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+  </ngb-alert>
+</p>
+
+        <ngx-datatable
+          class="data-table table-responsive"
+          [rows]="rows"
+
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"  [limit]="10">
+
+          <ngx-datatable-column
+             *ngFor="let col of columns"
+             [name]="col.prop">
+
+
+              <ng-template let-column="column" ngx-datatable-header-template >
+                {{col.prop}} <input name="col.prop">
+              </ng-template>
+
+           </ngx-datatable-column>
+        </ngx-datatable>
+
+
+
+      </app-card>
+    </div>
+  </div>
+</div>

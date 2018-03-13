@@ -11,6 +11,8 @@ import {SharedModule} from './shared/shared.module';
 import {MenuItems} from './shared/menu-items/menu-items';
 import {BreadcrumbsComponent} from './layout/admin/breadcrumbs/breadcrumbs.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 
 
 
@@ -32,7 +34,7 @@ import {BreadcrumbsComponent} from './layout/admin/breadcrumbs/breadcrumbs.compo
 
 
   ],
-  providers: [MenuItems],
+  providers: [MenuItems, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

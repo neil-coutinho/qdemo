@@ -3,10 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
 
+
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    canActivate: [ AuthGuard ],
     children: [
       {
         path: '',
@@ -21,7 +25,12 @@ const routes: Routes = [
         path: 'schema',
         loadChildren: './modules/forms/q-forms.module#QFormsModule'
       },
-      
+
+      {
+        path: 'es',
+        loadChildren: './modules/es/es.module#EsModule'
+      },
+
       {
         path: 'navigation',
         loadChildren: './theme/navigation/navigation.module#NavigationModule'

@@ -79,7 +79,8 @@ export class QFormComponent implements OnInit {
 
                       "name": { "type": "string" },
                       "quantity": { "type": "number" },
-                      "price": { "type": "number" }
+                      "price": { "type": "number" },
+
                     },
                     "required": [ "name" ]
                   }
@@ -123,7 +124,8 @@ export class QFormComponent implements OnInit {
         "placeholder": "Description"
       },
       {
-        "title": "Products",
+        "title": "",
+
         "type": "section",
         "expandable": true,
         "expanded": true,
@@ -131,32 +133,38 @@ export class QFormComponent implements OnInit {
           {
             "type": "section",
             "htmlClass": "card p-15",
-            "fieldHtmlClass": "btn-info",
+
+
             "items": [
               {
                 "key": "products",
                 "type": "array",
+                "title": "",
                 "orderable": false,
                 "listItems": 1,
                 "notitle": true,
-                  "fieldHtmlClass": "btn-info",
-
+                "showRemoveButton": false,
                 "items":[
+
                   {
                     "type": "section",
                     "notitle": true,
                     "htmlClass": "p-15",
                     "display": "flex",
                     "flex-direction": "row wrap",
-                    "items":[{
-                      "key": "products[].name", "notitle": true, "placeholder": "Name","flex": "3 3 150px" ,"fieldHtmlClass": "form-control-bold form-control-uppercase"
-                    },
 
-                    {
-                      "key": "products[].quantity", "notitle": true, "placeholder": "Quantity", "flex": "3 3 150px"
-                    },{
+                    "items":[
+                      {
+                        "key": "products[].name", "notitle": true, "placeholder": "Name","flex": "3 3 150px" ,"fieldHtmlClass": "form-control-bold form-control-uppercase"
+                      },
+                      {
+                        "key": "products[].quantity", "notitle": true, "placeholder": "Quantity", "flex": "3 3 150px"
+                      },
+                      {
                       "key": "products[].price", "notitle": true, "placeholder": "Price","flex": "3 3 150px"
-                    }]
+                    }
+
+                    ]
                   },
 
                 ]

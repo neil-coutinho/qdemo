@@ -15,7 +15,9 @@ import { FrameworkLibraryService } from 'angular2-json-schema-form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
+import { QMultiSelectWidgetComponent } from './widgets/q-multi-select-widget.component';
 
+import { SelectModule } from 'ng-select';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,12 +25,13 @@ import { QInputWidgetComponent } from './widgets/q-input-widget.component';
     Bootstrap4FrameworkModule,
     JsonSchemaFormModule.forRoot(Bootstrap4FrameworkModule),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SelectModule
 
 ],
 providers: [JsonSchemaFormService],
-  declarations: [QFormComponent,QInputWidgetComponent],
-  entryComponents: [QInputWidgetComponent]
+  declarations: [QFormComponent,QInputWidgetComponent, QMultiSelectWidgetComponent],
+  entryComponents: [QInputWidgetComponent, QMultiSelectWidgetComponent]
 })
 
 

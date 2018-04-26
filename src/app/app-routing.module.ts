@@ -25,6 +25,10 @@ const routes: Routes = [
         path: 'schema',
         loadChildren: './modules/forms/q-forms.module#QFormsModule'
       },
+      {
+        path: 'dnd',
+        loadChildren: './modules/dnd/dnd.module#DndModule'
+      },
 
       {
         path: 'es',

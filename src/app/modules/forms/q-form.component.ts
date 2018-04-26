@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { WidgetLibraryService } from 'angular2-json-schema-form';
 import { FrameworkLibraryService } from 'angular2-json-schema-form';
-
+import { QMultiSelectWidgetComponent } from './widgets/q-multi-select-widget.component';
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 
@@ -22,6 +22,7 @@ export class QFormComponent implements OnInit {
   constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService ) {
 
     widgetLibrary.registerWidget('markdown', QInputWidgetComponent);
+    widgetLibrary.registerWidget('multiselect', QMultiSelectWidgetComponent);
 
   }
 
@@ -48,6 +49,18 @@ export class QFormComponent implements OnInit {
 
          },
            "properties": {
+
+             "language": {
+               "title": "Language",
+               "type": "array",
+               "items":{
+                 "type": "string",
+                 "enum": [ "EN", "ES", "FR", "DE", "AB" ]
+
+               }
+             },
+
+
                "comment": {
                  "title": "Comment",
                  "type": "string",
@@ -114,147 +127,9 @@ export class QFormComponent implements OnInit {
 
     this.formLayout = [
       {
-        "key": "comment",
-        "type": "textarea",
-        "placeholder": "Make a comment"
-      },
-      {
-        "key": "description",
-        "type": "markdown",
-        "placeholder": "Description"
-      },
-      {
-        "title": "",
-
-        "type": "section",
-        "expandable": true,
-        "expanded": true,
-        "items":[
-          {
-            "type": "section",
-            "htmlClass": "card p-15",
-
-
-            "items": [
-              {
-                "key": "products",
-                "type": "array",
-                "title": "",
-                "orderable": false,
-                "listItems": 1,
-                "notitle": true,
-                "showRemoveButton": false,
-                "items":[
-
-                  {
-                    "type": "section",
-                    "notitle": true,
-                    "htmlClass": "p-15",
-                    "display": "flex",
-                    "flex-direction": "row wrap",
-
-                    "items":[
-                      {
-                        "key": "products[].name", "notitle": true, "placeholder": "Name","flex": "3 3 150px" ,"fieldHtmlClass": "form-control-bold form-control-uppercase"
-                      },
-                      {
-                        "key": "products[].quantity", "notitle": true, "placeholder": "Quantity", "flex": "3 3 150px"
-                      },
-                      {
-                      "key": "products[].price", "notitle": true, "placeholder": "Price","flex": "3 3 150px"
-                    }
-
-                    ]
-                  },
-
-                ]
-
-              }
-            ]
-
-          }
-        ]
-
-
-
-      },
-      {
-        "type": "div",
-        "display": "flex",
-        "flex-direction": "row wrap",
-        "items": [
-            {
-              "type": "section",
-              "flex": "1 1 150px",
-              "items": [
-                { "key": "orderDate", "title": "Order Date", "htmlClass": "w-50",}
-              ]
-            }
-
-        ]
-
-      },
-      {
-        "title": "<h4>Address</h4>",
-        "type": "section",
-
-        "items":[
-          {
-            "type": "section",
-            "htmlClass": "card p-15",
-            "items": [
-              {
-                "key": "shipTo",
-                "title": "Ship To",
-                "type": "section",
-                "expandable": true,
-                "expanded": true,
-                "display": "flex",
-                "flex-direction": "row wrap",
-                "items":[
-                  { "key": "shipTo.name", "flex": "3 3 150px"},
-                  { "key": "shipTo.street", "flex": "3 3 150px"},
-                  { "key": "shipTo.state", "flex": "3 3 150px"},
-                ]
-
-             },
-             {
-               "type": "div",
-
-
-             },
-              {
-                "key": "billTo",
-                "title": "Bill To",
-                "expandable": true,
-                "expanded": true,
-                "type": "section",
-                "display": "flex",
-                "flex-direction": "row wrap",
-                "items":[
-                  { "key": "billTo.name", "flex": "3 3 150px"},
-                  { "key": "billTo.street", "flex": "3 3 150px"},
-                  { "key": "billTo.state", "flex": "3 3 150px"},
-                ]
-
-              }
-            ]
-
-          }
-
-        ]
-
-
-      },
-      {
-      "type": "help",
-      "helpvalue": "<strong>Click on <em>Submit</em></strong> when you're done"
-    },
-      {
-        "type": "submit",
-        "style": "btn-info",
-        "title": "Submit"
-      }
+          "key": "language",
+      		"type": "multiselect"
+  		}
     ]
   }
 

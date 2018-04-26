@@ -1,0 +1,24 @@
+<div class="ngx-dnd-container" ngxDroppable>
+  <div class="ngx-dnd-item" ngxDraggable>Item 1</div>
+  <div class="ngx-dnd-item" ngxDraggable>Item 2</div>
+  <div class="ngx-dnd-item" ngxDraggable>Item 3</div>
+</div>
+
+<div class="ngx-dnd-container" fxLayout="row" fxLayoutWrap="wrap" ngxDroppable>
+  <div fxFlex="45" class="ngx-dnd-item" ngxDraggable>Item 1</div>
+  <div fxFlex="45" class="ngx-dnd-item" ngxDraggable>Item 2</div>
+  <div fxFlex="20" class="ngx-dnd-item" ngxDraggable>Item 3</div>
+  <div fxFlex="20" class="ngx-dnd-item" ngxDraggable>Item 4</div>
+  <div fxFlex="20" class="ngx-dnd-item" ngxDraggable>Item 5</div>
+  <div fxFlex="20" class="ngx-dnd-item" ngxDraggable>Item 6</div>
+  <div fxFlex="20" class="ngx-dnd-item" ngxDraggable>Item 7</div>
+  <div fxFlex="20" class="ngx-dnd-item" ngxDraggable>Item 8</div>
+</div>
+
+
+<ngx-dnd-container
+  [model]="nestedLists" (drag)="log($event)"
+  (drop)="log($event)"
+  (over)="log($event)"
+  (out)="log($event)">
+</ngx-dnd-container>

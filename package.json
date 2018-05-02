@@ -2,6 +2,7 @@
   "name": "qdemo",
   "version": "0.0.0",
   "license": "MIT",
+  "release": "standard-version && git push — follow-tags origin master && npm publish",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -75,6 +76,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "standard-version": "^4.3.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"

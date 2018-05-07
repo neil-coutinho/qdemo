@@ -44,7 +44,7 @@ export class QMultiSelectWidgetComponent implements OnInit {
 
   ngOnInit() {
 
-  console.log(this.layoutNode);
+  console.log(this.jsf.data[this.layoutNode.name]);
 
   for(let option of this.layoutNode.options.enum) {
     this.selectOptions.push({label: option , value: option})

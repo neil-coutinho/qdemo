@@ -4,6 +4,7 @@ import { WidgetLibraryService } from 'angular2-json-schema-form';
 import { FrameworkLibraryService } from 'angular2-json-schema-form';
 import { QMultiSelectWidgetComponent } from './widgets/q-multi-select-widget.component';
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
+import { QDataTableWidgetComponent } from './widgets/q-dataTable-widget.component';
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 
 @Component({
@@ -17,17 +18,25 @@ export class QFormComponent implements OnInit {
 
   formSchema;
   formLayout;
+  formData;
   formModel = {};
 
   constructor( private frameworkLibrary: FrameworkLibraryService, private widgetLibrary: WidgetLibraryService ) {
 
     widgetLibrary.registerWidget('markdown', QInputWidgetComponent);
     widgetLibrary.registerWidget('multiselect', QMultiSelectWidgetComponent);
+    widgetLibrary.registerWidget('dataTable', QDataTableWidgetComponent);
 
   }
 
   ngOnInit() {
 
+    this.formModel = {
+      "allergenInfo": [
+        {"name" : "Dairy", "code": "DEE"},
+        {"name" : "Gluten", "code": "GI"}
+      ]
+    }
 
 
     this.formSchema = {
@@ -103,7 +112,28 @@ export class QFormComponent implements OnInit {
                   "type": "string",
                   "format": "date",
 
+               },
+
+               "allergenInfo": {
+                 "title": "Allergen Info",
+                 "type": "array",
+                 "rows":{
+                   "type": "object",
+                   "properties": {
+                     "name": { "type": "string", "title": "Name", "prop": "name" },
+                     "code": { "type": "string", "title": "Code", "prop": "code"},
+                    },
+                 },
+                 "items": {
+                   "type": "object",
+                   "properties": {
+                     "name": { "type": "string" },
+                     "code": { "type": "string" },
+                    },
+                 }
+
                }
+
            },
            "required": [
              "comment",
@@ -129,6 +159,10 @@ export class QFormComponent implements OnInit {
       {
           "key": "language",
       		"type": "multiselect"
+  		},
+      {
+          "key": "allergenInfo",
+      		"type": "dataTable"
   		}
     ]
   }

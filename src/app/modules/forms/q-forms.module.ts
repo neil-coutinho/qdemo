@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { QInputWidgetComponent } from './widgets/q-input-widget.component';
 import { QMultiSelectWidgetComponent } from './widgets/q-multi-select-widget.component';
+import { QDataTableWidgetComponent } from './widgets/q-dataTable-widget.component';
+
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { SelectModule } from 'ng-select';
 @NgModule({
@@ -26,12 +29,13 @@ import { SelectModule } from 'ng-select';
     JsonSchemaFormModule.forRoot(Bootstrap4FrameworkModule),
     FormsModule,
     ReactiveFormsModule,
-    SelectModule
+    SelectModule,
+    NgxDatatableModule
 
 ],
 providers: [JsonSchemaFormService],
-  declarations: [QFormComponent,QInputWidgetComponent, QMultiSelectWidgetComponent],
-  entryComponents: [QInputWidgetComponent, QMultiSelectWidgetComponent]
+  declarations: [QFormComponent,QInputWidgetComponent, QMultiSelectWidgetComponent, QDataTableWidgetComponent],
+  entryComponents: [QInputWidgetComponent, QMultiSelectWidgetComponent, QDataTableWidgetComponent]
 })
 
 

@@ -1,3 +1,5 @@
+
+import {filter} from 'rxjs/operators';
 import { Component } from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
@@ -9,8 +11,8 @@ import {isUndefined} from "util";
 })
 export class TitleComponent {
   constructor(private router: Router, private route: ActivatedRoute, private titleService: Title) {
-    this.router.events
-      .filter(event => event instanceof NavigationEnd)
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         let currentRoute = this.route.root;
         let title = '';

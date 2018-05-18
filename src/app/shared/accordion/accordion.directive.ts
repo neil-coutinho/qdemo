@@ -1,8 +1,10 @@
+
+import {filter} from 'rxjs/operators';
 import { Directive, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AccordionLinkDirective } from './accordionlink.directive';
-import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/add/operator/filter';
+import { Subscription } from 'rxjs';
+
 
 @Directive({
   selector: '[appAccordion]',
@@ -43,7 +45,7 @@ export class AccordionDirective implements OnInit {
   }
 
   ngOnInit(): any {
-    this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+    this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
       this.countState = 0;
       this.navlinks.forEach((link: AccordionLinkDirective) => {
         if (link.group) {

@@ -1,17 +1,16 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {IOption} from 'ng-select';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription, Observable} from 'rxjs';
 import {SelectOptionService} from '../../../shared/elements/select-option.service';
-import {Observable} from 'rxjs/Observable';
 import {Jsonp} from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/first';
+
+
+
+
+
+
+
+
 
 @Component({
   selector: 'app-form-select',

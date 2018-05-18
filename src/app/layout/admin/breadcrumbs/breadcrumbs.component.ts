@@ -1,3 +1,5 @@
+
+import {filter} from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 
@@ -10,8 +12,8 @@ export class BreadcrumbsComponent {
   tempState = [];
   breadcrumbs: Array<Object>;
   constructor(private router: Router, private route: ActivatedRoute) {
-    this.router.events
-      .filter(event => event instanceof NavigationEnd)
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.breadcrumbs = [];
         this.tempState = [];

@@ -162,7 +162,8 @@ export class QFormComponent implements OnInit {
   		},
       {
           "key": "allergenInfo",
-      		"type": "dataTable"
+      		"type": "dataTable",
+
   		}
     ]
   }
@@ -172,7 +173,7 @@ export class QFormComponent implements OnInit {
    * @return [void]
    */
   submit($event) {
-    console.log(`hello world`);
+    console.log(`Form Submit event`);
     console.log($event);
   }
 
